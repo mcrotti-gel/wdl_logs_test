@@ -31,12 +31,12 @@ task medianGQ_filter {
     runtime {
         cpu: 1
         memory: "2 GB"
-        docker: "082963657711.dkr.ecr.eu-west-2.amazonaws.com/bcftools"
+        docker: "082963657711.dkr.ecr.eu-west-2.amazonaws.com/bcftools:1.13"
     }
 
     command {
         bcftools query -i 'minGQ > 30' -f '%CHROM\t%POS\t%REF\t%ALT\t%minGQ\n' ${vcf} > ${vcf_name}_medianGQ.tsv
-        grep da * 2> grep-errors.txt
+        bcftools query -i 'minGQ > 30' -f '%CHROM\t%POS\t%REF\t%ALT\t%minGQ\n' ${vcf} 2> test_error.txt
     }
 
     output {
