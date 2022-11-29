@@ -35,8 +35,8 @@ task medianGQ_filter {
     }
 
     command {
-        bcftools query -i 'minGQ > 30' -f '%CHROM\t%POS\t%REF\t%ALT\t%minGQ\n' ${vcf} > ${vcf_name}_medianGQ.tsv
-        bcftools query -i 'minGQ > 30' -f '%CHROM\t%POS\t%REF\t%ALT\t%minGQ\n' ${vcf} 2> test_error.txt
+        bcftools query -i 'menGQ > 30' -f '%CHROM\t%POS\t%REF\t%ALT\t%minGQ\n' ${vcf} > ${vcf_name}_medianGQ.tsv
+        bcftools query -i 'menGQ > 30' -f '%CHROM\t%POS\t%REF\t%ALT\t%minGQ\n' ${vcf} 2> test_error.txt
     }
 
     output {
